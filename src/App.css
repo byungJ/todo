@@ -71,7 +71,7 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
