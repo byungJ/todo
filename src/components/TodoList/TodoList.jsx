@@ -5,13 +5,14 @@ import styles from './TodoList.module.css';
 
 export default function TodoList({ filter }) {
     const [todos, setTodos] = useState([
-        { id: '123', text: 'react마스터 하기', status: 'active' },
-        { id: '124', text: '프런트 마스터 하기', status: 'active' },
+        // { id: '123', text: 'react마스터 하기', status: 'active' },
+        // { id: '124', text: '프런트 마스터 하기', status: 'active' },
     ]);
 
     const handleAdd = (todo) => {
         // 새로운 투두를 업데이틑 해야합니다.
         console.log(todo);
+        localStorage.theme = todo;
         setTodos([...todos, todo]);
     }
  
