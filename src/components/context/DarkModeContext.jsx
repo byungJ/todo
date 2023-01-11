@@ -27,6 +27,9 @@ export function DarkModeProvider({ children }) {
     )
 }
 
+// 사용하는 곳에서 매번
+// const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+// 하기 번거로워서 Hooks으로 만들들었습니다.
 export const useDarkMode = () => useContext(DarkModeContext);
 
 function updateDarkMode(darkMode) {
