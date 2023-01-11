@@ -1,0 +1,17 @@
+.container {
+    height: 100%;
+
+    /* 설정을 안 해주면 내용이 많을 때
+    navbar가 사라집니다. 브라우저에서 기본적으로 min-hegith을
+    100% 으로 잡습니다.
+    */
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg);
+}
+
+.list {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
