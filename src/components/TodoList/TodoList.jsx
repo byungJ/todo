@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddTodo from '../AddTodo/AddTodo';
 import Todo from '../Todo/Todo';
 import styles from './TodoList.module.css';
 
 export default function TodoList({ filter }) {
-    const [todos, setTodos] = useState([
-        // { id: '123', text: 'react마스터 하기', status: 'active' },
-        // { id: '124', text: '프런트 마스터 하기', status: 'active' },
-    ]);
+    const [todos, setTodos] = useState(() => {
+        const todos = localStorage.getItem('todos');
+        return todos ? JSON.parse(todos) : [];
+    });
+
+    
+
+    useEffect(() => {
+        // localStorage 에는 문자열만 저장됩니다.
+        // localStorage에 객체나 배열를 저장하기 위해서는 
+        // 객체를 문자열로 변환해서 저장해야 합니다.
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos])
 
     const handleAdd = (todo) => {
         // 새로운 투두를 업데이틑 해야합니다.
-        console.log(todo);
-        localStorage.theme = todo;
         setTodos([...todos, todo]);
     }
  
@@ -38,10 +45,14 @@ export default function TodoList({ filter }) {
         </section>
     );
 }
-
 function getFilteredItems(todos, filter) {
     if (filter === 'all') {
         return todos;
     }
     return todos.filter(todo => todo.status === filter);
+}
+
+function readTodosFromLocalStorage() {
+    const todos = localStorage.getItem('todos');
+    return todos ? JSON.parse(todos) : [];
 }
