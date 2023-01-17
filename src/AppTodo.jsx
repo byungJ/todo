@@ -1,13 +1,12 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 
 
 export default function AppTodo() {
 
-    let num = 1;
     const [todo, setTodo] = useState([]);
     const [context, setContext] = useState('');
-    const [check, setCheck] = useState(false);
+    const [check] = useState(false);
 
     const handleChange = (e) => {
         setContext(e.target.value);
@@ -46,10 +45,7 @@ export default function AppTodo() {
 
     const handleNavBar = (e) => {
         const navbar = e.target.id;
-        const todoItem = todo;
 
-        console.log(e)
-        
         switch(navbar) {
             case 'liAll': {
                 setTodo((todo) => todo);
