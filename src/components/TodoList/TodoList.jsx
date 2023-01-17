@@ -5,6 +5,7 @@ import styles from './TodoList.module.css';
 
 export default function TodoList({ filter }) {
     const [todos, setTodos] = useState(() => {
+        // readTodosFromLocalStorage()
         const todos = localStorage.getItem('todos');
         return todos ? JSON.parse(todos) : [];
     });
@@ -52,7 +53,7 @@ function getFilteredItems(todos, filter) {
     return todos.filter(todo => todo.status === filter);
 }
 
-function readTodosFromLocalStorage() {
-    const todos = localStorage.getItem('todos');
-    return todos ? JSON.parse(todos) : [];
-}
+// function readTodosFromLocalStorage() {
+//     const todos = localStorage.getItem('todos');
+//     return todos ? JSON.parse(todos) : [];
+// }

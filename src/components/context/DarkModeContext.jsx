@@ -15,7 +15,6 @@ export function DarkModeProvider({ children }) {
         localStorage.theme === 'dark' ||
         (!('theme' in localStorage) &&
             window.matchMedia('(prefers-color-scheme: dark)').matches);
-        console.log(isDark);
         setDarkMode(isDark);
         updateDarkMode(isDark)
     } ,[]);
